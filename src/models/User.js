@@ -1,0 +1,36 @@
+//modelo de usuario cliente
+
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: [true, "Name is required"],
+            trim: true
+        },
+        email: {
+            type: String,
+            required: [true, "Email is required"],
+            unique: true,
+            trim: true,
+            lowercase: true
+        },
+        password: {
+            type: String,
+            required: [true, "Password is required"]
+        },
+        role: {
+            type: String,
+            enum: ["user", "restaurant"],
+            required: [true, "Role is required"]
+        }
+    },
+    {
+        timestamps: true
+    }
+);
+
+const User = mongoose.model("User", UserSchema);
+
+module.exports = User;

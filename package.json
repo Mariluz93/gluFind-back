@@ -1,7 +1,7 @@
 {
   "name": "glufind-back",
   "version": "1.0.0",
-  "description": "",
+  "description": "HOLA CARACOLA. AQUÍ EL README",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,19 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.3.1",
-    "express": "5.2.1"
-  }
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.3",
+    "morgan": "^1.10.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mariluz93/gluFind-back.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mariluz93/gluFind-back/issues"
+  },
+  "homepage": "https://github.com/Mariluz93/gluFind-back#readme"
 }
