@@ -1,14 +1,17 @@
-# gluFind
+# gluFind - Backend API
 
 ## Descripción
 
-gluFind es un MVP (Minimum Viable Product) de una plataforma web orientada a personas celíacas.
+gluFind es una API REST desarrollada como MVP (Minimum Viable Product) de una plataforma web orientada a personas celíacas.
 
 Permite a restaurantes registrarse y publicar platos aptos para celíacos, y a los usuarios explorar opciones, consultar menús y guardar sus restaurantes favoritos.
 
-El objetivo a futuro es evolucionar hacia un marketplace completo de delivery de comida gluten free.
+El objetivo a futuro es evolucionar hacia un marketplace completo de comida gluten free con funcionalidades de pedido y entrega.
 
 ---
+## Deploy
+
+- API desplegada en producción: https://glufind-back.onrender.com
 
 ## Tecnologías utilizadas
 
@@ -18,12 +21,13 @@ El objetivo a futuro es evolucionar hacia un marketplace completo de delivery de
 - Mongoose
 - JSON Web Token (JWT)
 - Bcrypt
+- CORS
 
 ---
 
 ## Funcionalidades
 
-### Usuarios
+### Autenticación
 
 - Registro (user / restaurant)
 - Login
@@ -37,7 +41,6 @@ El objetivo a futuro es evolucionar hacia un marketplace completo de delivery de
 - Obtener listado de restaurantes
 - Ver detalle de restaurante
 - Editar restaurante (solo propietario)
-- Eliminar restaurante (solo propietario)
 - Restricción: un usuario solo puede tener un restaurante
 
 ---
@@ -45,9 +48,7 @@ El objetivo a futuro es evolucionar hacia un marketplace completo de delivery de
 ### Platos
 
 - Crear plato (solo propietario del restaurante)
-- Obtener todos los platos
 - Obtener platos por restaurante
-- Ver detalle de plato
 - Editar plato (solo propietario)
 - Eliminar plato (solo propietario)
 
@@ -57,7 +58,7 @@ El objetivo a futuro es evolucionar hacia un marketplace completo de delivery de
 
 - Añadir restaurante a favoritos (solo user)
 - Ver favoritos del usuario autenticado
-- Eliminar favorito
+- Eliminar favorito (solo user)
 - Prevención de duplicados
 
 ---
@@ -129,18 +130,86 @@ La aplicación utiliza JWT para la autenticación y autorización de usuarios.
 
 ---
 
-## Próximos pasos
+## Estructura del proyecto
 
-- Desarrollo del frontend en React
-- Integración completa frontend-backend
-- Feedback visual (loading, errores, éxito)
-- Diseño responsive básico
-- Deploy
+src/
+│
+├── config/
+|  └── db.js
+├── controllers/
+|  ├── authController.js
+|  ├── dishController.js
+|  ├── favoriteController.js
+|  └── restaurantController.js
+├── helpers/
+|  └── generateToken.js
+├── middleware/
+|  ├── authMiddleware.js
+|  └── roleMiddleware.js
+├── models/
+|  ├── Dish.js
+|  ├── Favorite.js
+|  ├──Restauran.js
+|  └── User.js
+├── routes/
+|  ├── authRoutes.js
+|  ├── dishRoutes.js
+|  ├── favoriteRoutes.js
+|  ├── restauranRoutes.js
+|  └── indexRoutes.js
+└── index.js
+
+---
+
+## Instalación en local
+
+1. Clonar el repositorio:
+
+git clone https://github.com/Mariluz93/gluFind-back
+
+2. Instalar dependencias:
+
+npm install
+
+3. Crear archivo .env en la raíz del proyecto:
+
+Añadir las variables de entorno necesarias: MONGO_URI, PORT, JWT_SECRET y JWT:EXPIRES_IN
+
+4. Iniciar el servidor:
+
+npm start
+
+---
+
+## Despliegue
+
+Hemos desplegado la aplicación con Render en producción verificando que:
+
+  - Hemos configurado 0.0.0.0/0 en MongoDB Atlas
+  - Hemos añadido las variables de entorno en el panel de Render
+  - Hemos verificado que el proyecto se despliega automáticamente al hacer push a GitHub
+
+---
 
 ### Futuras mejoras
 
+- Implementar tests con Jest y Supertest
+- Añadir documentación Swagger para la API
+- Subida de imágenes (Cloudinary)
 - Sistema de pedidos
 - Carrito de compra
 - Pagos
-- Reviews
+- Reviews de usuarios
 - Geolocalización / mapa
+
+---
+
+## Estado del proyecto
+
+Proyecto funcional en fase MVP con backend completamente desplegado y conectado al frontend.
+
+---
+
+## Autor
+
+Proyecto desarrollado por María Luz Castro como proyecto final del bootcamp Full Stack Developer en The Bridge.
