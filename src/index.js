@@ -15,7 +15,7 @@ connectDB();
 app.use(cors({
     origin: [
         'http://localhost:5173',
-        'https://glu-find-front.vercel.app/'
+        'https://glu-find-front.vercel.app'
     ]
 }));
 
