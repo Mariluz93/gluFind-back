@@ -1,5 +1,3 @@
-//modelo de favorito
-
 const mongoose = require('mongoose');
 
 const FavoriteSchema = new mongoose.Schema(

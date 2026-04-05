@@ -1,9 +1,7 @@
-// lógica: función para crear plato, función para ver todos los platos, función para ver un plato por su id, función para actualizar plato, función para borrar plato y función para ver los platos por de un restaurante por su id.
-
 const Dish = require('../models/Dish');
 const Restaurant = require('../models/Restaurant');
 
-//función para crear plato
+
 const createDish = async (req, res) => {
     try {
         const { name, description, price, isGlutenFree, image, restaurantId } = req.body;
@@ -51,7 +49,6 @@ const createDish = async (req, res) => {
     }
 };
 
-//función para ver todos los platos
 const getAllDishes = async (req, res) => {
     try {
         const dishes = await Dish.find();
@@ -64,7 +61,6 @@ const getAllDishes = async (req, res) => {
 };
 
 
-//función para ver un plato por su id
 const getDishById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -82,7 +78,6 @@ const getDishById = async (req, res) => {
     }
 };
 
-// función para ver los platos por de un restaurante por su id
 const getDishesByRestaurant = async (req, res) => {
     try {
         const { restaurantId } = req.params;
@@ -102,7 +97,6 @@ const getDishesByRestaurant = async (req, res) => {
     }
 };
 
-//función para actualizar plato
 const updateDish = async (req, res) => {
     try {
         const { id } = req.params;
@@ -143,7 +137,6 @@ const updateDish = async (req, res) => {
     }
 };
 
-//función para borrar plato
 const deleteDish = async (req, res) => {
     try {
         const { id } = req.params;

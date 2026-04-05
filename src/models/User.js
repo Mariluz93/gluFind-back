@@ -1,5 +1,3 @@
-//modelo de usuario cliente
-
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema(

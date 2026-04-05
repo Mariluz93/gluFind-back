@@ -1,5 +1,3 @@
-// Comprobamos si el usuario tiene rol user o restaurant.
-
 const roleMiddleware = (role) => {
     return (req, res, next) => {
         if (req.user.role !== role) {

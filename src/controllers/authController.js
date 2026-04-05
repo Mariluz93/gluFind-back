@@ -1,10 +1,7 @@
-//la lógica es registrarse, loguearse y mostrar el usuario una vez autenticados
-
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const { generateToken } = require("../helpers/generateToken");
 
-//función para registrar usuarios
 const register = async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
@@ -54,7 +51,6 @@ const register = async (req, res) => {
     }
 };
 
-//función para loguearnos.
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -93,7 +89,6 @@ const login = async (req, res) => {
     }
 };
 
-//función para devolver el usuario actual una vez autenticados.
 const me = async (req, res) => {
     try {
         return res.status(200).json(req.user);

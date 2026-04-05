@@ -1,9 +1,6 @@
-// lógica: función para añadir favoritos, función para ver los favoritos del usuario y función para eliminar favorito.
-
 const Favorite = require('../models/Favorite');
 const Restaurant = require('../models/Restaurant');
 
-//función para añadir favorito
 const addFavorite = async (req, res) => {
     try {
         const { restaurantId } = req.body;
@@ -39,7 +36,6 @@ const addFavorite = async (req, res) => {
     }
 };
 
-//función para ver los favoritos de usuario
 const getFavorites = async (req, res) => {
     try {
         const favorites = await Favorite.find({ userId: req.user._id }).populate("restaurantId"); //populate devuelve toda la info, no solo el id del restaurante
@@ -51,7 +47,6 @@ const getFavorites = async (req, res) => {
     }
 };
 
-//función para eliminar un favorito
 const removeFavorite = async (req, res) => {
     try {
         const { restaurantId } = req.params;

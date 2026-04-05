@@ -1,5 +1,3 @@
-//modelo de plato
-
 const mongoose = require('mongoose');
 
 const DishSchema = new mongoose.Schema(

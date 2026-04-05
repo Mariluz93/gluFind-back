@@ -1,8 +1,5 @@
-// lógica: función para crear restaurante, función para ver restaurantes, función para ver un restaurante, función para actualizar restaurante y función para borrar restaurante
-
 const Restaurant = require('../models/Restaurant');
 
-//función para crear unrestaurante
 const createRestaurant = async (req, res) => {
     try {
         const { name, description, address, image } = req.body;
@@ -32,7 +29,6 @@ const createRestaurant = async (req, res) => {
     }
 };
 
-//función para obtener todos los restaurantes
 const getAllRestaurants = async (req, res) => {
     try {
         const restaurants = await Restaurant.find();
@@ -44,7 +40,7 @@ const getAllRestaurants = async (req, res) => {
     }
 };
 
-//función para obtener un restaurante por su id
+
 const getRestaurantById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -62,7 +58,6 @@ const getRestaurantById = async (req, res) => {
     }
 };
 
-//función para actualizar un restaurante
 const updateRestaurant = async (req, res) => {
     try {
         const { id } = req.params;
@@ -93,7 +88,6 @@ const updateRestaurant = async (req, res) => {
 };
 
 
-//función para borrar un restaurante
 const deleteRestaurant = async (req, res) => {
     try {
         const { id } = req.params;
