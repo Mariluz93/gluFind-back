@@ -2,14 +2,19 @@ require('dotenv').config();
 
 
 const express = require('express');
-const morgan = require('morgan'); //para mostrar en consola las peticiones que llegan al servidor
+const morgan = require('morgan');
+const cors = require('cors')
 const { connectDB } = require('./config/db.js');
 const indexRoutes = require('./routes/indexRoutes.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-connectDB(); 
+connectDB();
+
+app.use(cors({
+    origin: 'http://localhost:5173'
+}));
 
 app.use(express.json());
 app.use(morgan('dev'));

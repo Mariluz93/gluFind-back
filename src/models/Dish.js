@@ -24,6 +24,10 @@ const DishSchema = new mongoose.Schema(
             required: true,
             default: false
         },
+        image: {
+            type: String,
+            default: "",
+        },
         restaurantId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Restaurant",

@@ -6,7 +6,7 @@ const Restaurant = require('../models/Restaurant');
 //función para crear plato
 const createDish = async (req, res) => {
     try {
-        const { name, description, price, isGlutenFree, restaurantId } = req.body;
+        const { name, description, price, isGlutenFree, image, restaurantId } = req.body;
 
         if(!name || !description || !price || !restaurantId) {
             return res.status(400).json({ message: "Name, description, price and restaurantId are required" });
@@ -40,6 +40,7 @@ const createDish = async (req, res) => {
             description,
             price,
             isGlutenFree,
+            image,
             restaurantId
         });
         
@@ -105,7 +106,7 @@ const getDishesByRestaurant = async (req, res) => {
 const updateDish = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, description, price, isGlutenFree } = req.body;
+        const { name, description, price, isGlutenFree, image } = req.body;
 
         const dish = await Dish.findById(id);
 
@@ -131,6 +132,7 @@ const updateDish = async (req, res) => {
         dish.description = description || dish.description;
         dish.price = price !== undefined ? price : dish.price;
         dish.isGlutenFree = isGlutenFree !== undefined ? isGlutenFree : dish.isGlutenFree;
+        dish.image = image || dish.image;
 
         const updatedDish = await dish.save();
 
