@@ -181,16 +181,6 @@ npm start
 
 ---
 
-## Despliegue
-
-Hemos desplegado la aplicación con Render en producción verificando que:
-
-  - Hemos configurado 0.0.0.0/0 en MongoDB Atlas
-  - Hemos añadido las variables de entorno en el panel de Render
-  - Hemos verificado que el proyecto se despliega automáticamente al hacer push a GitHub
-
----
-
 ### Futuras mejoras
 
 - Implementar tests con Jest y Supertest
